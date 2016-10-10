@@ -1,47 +1,23 @@
 <!DOCTYPE html>
 <html>
-  	<head>
-    	<title><%= full_title(yield(:title)) %></title>
-			<%= stylesheet_link_tag "application", media: "all" %>
-			<%= javascript_include_tag "application" %>
-			<%= csrf_meta_tags %>
-	</head>
-	<style type="text/css">
-		div{
-		}
-		#div2{
-			margin-top: 70px;
-		}
-		#div3{
-			margin-top: 30px;
-		}
-	</style>
-	<body>
-		<header class="navbar navbar-fixed-top">
-			<div class="navbar-inner">
-				<div class="container" id = "div1">
-					<table width="100%" border="0">
-					  <tr valign="top">
-					    <td width="74%">
-					     Sample App
-					    </td>
-					    <td width="8%">
-					        <%= link_to "Home", '#' %>
-					    </td>
-					    <td width="8%">
-					    	<%= link_to "Help", '#' %>  
-					    </td>
-					    <td width="10%">
-					    	<%= link_to "Sign in", '#' %>  
-					    </td>
-					   </tr>
-					<table>
+  <head>
 
-				</div>
-			</div>
-		</header>
-	<div class="container">
-		<%= yield %>
-	</div>
-	</body>
+    <title><%= full_title(yield(:title)) %></title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all',
+                                              'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= render 'layouts/shim' %>
+  </head>
+  <body>
+    <%= render 'layouts/header' %>
+    <div class="container my-container" >
+      <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
+      <%= yield %>
+      <%= render 'layouts/footer' %>
+      <%= debug(params) if Rails.env.development? %>
+    </div>
+  </body>
 </html>
