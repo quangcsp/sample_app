@@ -1,3 +1,36 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body{
+	background-image: url();
+	background-size: cover;
+	font-family: 'Raleway';
+
+
+}
+
+h1{
+	color: red;
+	font-size: 80px;
+	margin-top: 150px;
+	margin-bottom: 20px;
+	font-weight: 700;
+}
+
+p{
+	padding: 30px;
+	font-size: 30px;
+}
+
+footer{
+	width: 100%;
+	position: absolute;
+	bottom: 0px;
+}
+
+footer, footer>span{
+	height: 60px;
+	background-color: #F2F2F2;
+	padding: 0px 50px 0px 50px;
+	line-height: 60px;
+}
